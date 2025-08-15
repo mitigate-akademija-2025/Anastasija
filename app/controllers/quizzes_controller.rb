@@ -1,5 +1,7 @@
 class QuizzesController < ApplicationController
+  # before_action :authorize_resource, only: [ :index ]
   before_action :set_quiz, only: %i[ show edit update destroy ]
+
 
   # GET /quizzes or /quizzes.json
   def index
@@ -68,10 +70,14 @@ class QuizzesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def quiz_params
-      params.require(:quiz).permit( 
-        :title, 
+      params.require(:quiz).permit(
+        :title,
         :description,
-        questions_attributes: [:id, :name, :_destroy]
+        questions_attributes: [ :id, :name, :_destroy ]
         )
     end
+
+  # def authorize_resource
+  #   authorize Quiz
+  # end
 end

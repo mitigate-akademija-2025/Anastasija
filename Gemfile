@@ -56,8 +56,16 @@ group :development do
   gem "web-console"
 end
 
+gem "tailwindcss-ruby", "~> 3.4"
+gem "tailwindcss-rails", "~> 3.3"
+
+
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "devise", "~> 4.9"
+
+gem "pundit", "~> 2.5"
